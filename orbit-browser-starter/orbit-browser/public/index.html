@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080d1b">
+  <title>Orbit — Gaming Browser</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient"></div>
+  <main id="authView" class="auth-shell">
+    <section class="brand-panel">
+      <div class="logo"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M42 8a25 25 0 1 0 14 43A22 22 0 0 1 42 8Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="m48 8 2-5 2 5 5 2-5 2-2 5-2-5-5-2 5-2ZM16 12l1.5-3L19 12l3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5Z" fill="currentColor"/></svg></div>
+      <p class="eyebrow">YOUR SPACE. YOUR SPEED.</p>
+      <h1>Orbit<span>.</span></h1>
+      <p class="brand-copy">A focused place to browse, play and explore.</p>
+      <div class="orbital-art"><div class="planet"></div><i>✦</i><b>·</b><em>✧</em></div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-tabs"><button class="tab active" data-mode="login">Sign in</button><button class="tab" data-mode="signup">Create account</button></div>
+      <h2 id="authTitle">Welcome back</h2><p class="muted" id="authSubtitle">Sign in to continue to Orbit.</p>
+      <form id="authForm">
+        <label>Email address<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" minlength="10" required placeholder="At least 10 characters"></label>
+        <button class="primary" type="submit" id="authSubmit">Sign in <span>↗</span></button>
+      </form>
+      <p id="authMessage" class="message" role="status"></p>
+      <p class="tiny">By continuing you agree to use Orbit responsibly.</p>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="side-brand"><span class="mini-logo">☾</span> ORBIT</div>
+      <div class="side-label">WORKSPACE</div>
+      <button class="side-link selected" id="homeNav">◫ <span>Browser</span></button>
+      <button class="side-link hidden" id="adminNav">▤ <span>Admin console</span></button>
+      <div class="side-bottom"><div class="user-chip"><div class="avatar">O</div><div><strong id="userEmail">Account</strong><small id="userRole">Member</small></div></div><button class="side-link" id="logoutBtn">↪ <span>Sign out</span></button></div>
+    </aside>
+    <section class="main-area">
+      <header class="topbar"><div><span class="status-dot"></span> ORBIT WEB</div><div class="top-right"><span class="browser-note">Works in Chrome · Edge · Safari</span><span class="top-avatar">O</span></div></header>
+      <section id="browserPage" class="page">
+        <div class="welcome"><p class="eyebrow">THE WEB, IN YOUR ORBIT</p><h1>Where to next?</h1><p class="muted">Enter a public website address to open an HTML preview through the Orbit server.</p></div>
+        <form id="browseForm" class="address-bar"><span>⌕</span><input id="address" type="text" placeholder="https://example.com" autocomplete="url"><button type="submit">Go <b>↗</b></button></form>
+        <div class="quick-grid"><article class="quick-card"><span class="quick-icon">⌘</span><h3>Gaming space</h3><p>Your browser workspace, designed for focus.</p></article><article class="quick-card"><span class="quick-icon">◈</span><h3>Server routed</h3><p>Requests in this preview pass through your Orbit server.</p></article><article class="quick-card"><span class="quick-icon">✧</span><h3>Orbit account</h3><p>Sign in to keep access tied to your account.</p></article></div>
+        <section id="resultPanel" class="result-panel hidden"><div class="result-head"><strong id="resultTitle">Page preview</strong><button id="closeResult">Close</button></div><pre id="resultContent"></pre></section>
+        <p class="disclaimer">Orbit preview is an MVP. It is not yet a full browser engine or a complete compatibility proxy for complex websites.</p>
+      </section>
+      <section id="adminPage" class="page hidden">
+        <div class="welcome"><p class="eyebrow">CONTROL ROOM</p><h1>Server overview</h1><p class="muted">Account and event information recorded by this Orbit instance.</p></div>
+        <div class="stats"><article><small>Registered users</small><strong id="statUsers">—</strong></article><article><small>Proxy requests</small><strong id="statVisits">—</strong></article><article><small>Active sessions</small><strong id="statSessions">—</strong></article></div>
+        <h2 class="section-title">Recent activity</h2><div class="table-wrap"><table><thead><tr><th>Account</th><th>Event</th><th>Detail</th><th>Time</th></tr></thead><tbody id="eventsBody"></tbody></table></div>
+        <h2 class="section-title">Accounts</h2><div class="table-wrap"><table><thead><tr><th>Email</th><th>Role</th><th>Created</th></tr></thead><tbody id="usersBody"></tbody></table></div>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body></html>
